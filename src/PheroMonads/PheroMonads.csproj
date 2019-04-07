@@ -15,9 +15,10 @@ It is lightweight and has no dependencies.</Description>
 * Try
 * Maybe
 * Either</PackageReleaseNotes>
-    <PackageIconUrl>https://github.com/sregojo/PheroMonads/artwork/icon.png</PackageIconUrl>
-    <PackageLicenseUrl>MIT</PackageLicenseUrl>
-    <PackageTags>Monads, C#, fluent</PackageTags>
+    <PackageIconUrl>https://raw.githubusercontent.com/sregojo/PheroMonads/master/artwork/icon.png</PackageIconUrl>
+    <PackageLicenseUrl>https://licenses.nuget.org/MIT</PackageLicenseUrl>
+    <PackageTags>Monads, C#, fluent, lambda</PackageTags>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

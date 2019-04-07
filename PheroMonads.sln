@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "artwork", "artwork", "{875E31F5-F747-4A4A-9ACA-2D4D2BE94AE0}"
 	ProjectSection(SolutionItems) = preProject
+		artwork\icon.png = artwork\icon.png
 		artwork\logo.png = artwork\logo.png
 	EndProjectSection
 EndProject
