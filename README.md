@@ -1,6 +1,6 @@
 # PheroMonads
 
-![](https://github.com/sregojo/PheroMonads/blob/master/artwork/logo.png)
+![](https://raw.githubusercontent.com/sregojo/PheroMonads/master/artwork/logo.png)
 
 
 This repository contains PheroMonads "core".
