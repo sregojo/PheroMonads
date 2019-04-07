@@ -1,6 +1,6 @@
 ﻿namespace PheroMonads
 {
-    public abstract class EitherOperand<T>
+    abstract class EitherOperand<T>
     {
         protected readonly T value;
 

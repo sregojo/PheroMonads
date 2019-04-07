@@ -2,7 +2,7 @@
 
 namespace PheroMonads
 {
-    public class TryFailure : ITry
+    class TryFailure : ITry
     {
         protected readonly Exception value;
 
@@ -24,28 +24,16 @@ namespace PheroMonads
             => Maybe.Some(failure(this.value));
 
         public IMaybe<U> Case<U>(Func<U> success, Action failure)
-        {
-            failure();
-            return Maybe.None<U>();
-        }
+            => Maybe.None<U>(()=>failure());
 
         public IMaybe<U> Case<U>(Func<IMaybe<U>> success, Action failure)
-        {
-            failure();
-            return Maybe.None<U>();
-        }
+            => Maybe.None<U>(() => failure());
 
         public IMaybe<U> Case<U>(Func<U> success, Action<Exception> failure)
-        {
-            failure(this.value);
-            return Maybe.None<U>();
-        }
+            => Maybe.None<U>(() => failure(this.value));
 
         public IMaybe<U> Case<U>(Func<IMaybe<U>> success, Action<Exception> failure)
-        {
-            failure(this.value);
-            return Maybe.None<U>();
-        }
+            => Maybe.None<U>(() => failure(this.value));
 
         public U Case<U>(Func<U> success, Func<U> failure)
             => failure();

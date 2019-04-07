@@ -2,7 +2,7 @@
 
 namespace PheroMonads
 {
-    public class TrySuccess : ITry
+    class TrySuccess : ITry
     {
         public void Case(Action success, Action failure)
             => success();
@@ -11,22 +11,13 @@ namespace PheroMonads
             => success();
 
         public IMaybe<U> Case<U>(Action success, Func<U> failure)
-        {
-            success();
-            return Maybe.None<U>();
-        }
+            => Maybe.None<U>(()=>success());
 
         public IMaybe<U> Case<U>(Action success, Func<Exception, U> failure)
-        {
-            success();
-            return Maybe.None<U>();
-        }
+            => Maybe.None<U>(() => success());
 
         public IMaybe<U> Case<U>(Action success, Func<Exception, IMaybe<U>> failure)
-        {
-            success();
-            return Maybe.None<U>();
-        }
+            => Maybe.None<U>(() => success());
 
         public IMaybe<U> Case<U>(Func<U> success, Action failure)
             => Maybe.Some(success());

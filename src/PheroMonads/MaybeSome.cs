@@ -2,7 +2,7 @@
 
 namespace PheroMonads
 {
-    public sealed class MaybeSome<T> : IMaybe<T>
+    sealed class MaybeSome<T> : IMaybe<T>
     {
         private readonly T value;
 
@@ -12,19 +12,13 @@ namespace PheroMonads
             => some();
 
         public IMaybe<U> Case<U>(Action some, Func<U> none)
-        {
-            some();
-            return Maybe.None<U>();
-        }
+            => Maybe.None<U>(() => some());
 
         public void Case(Action<T> some, Action none)
             => some(this.value);
 
         public IMaybe<U> Case<U>(Action<T> some, Func<U> none)
-        {
-            some(this.value);
-            return Maybe.None<U>();
-        }
+            => Maybe.None<U>(() => some(this.value));
 
         public IMaybe<U> Case<U>(Func<U> some, Action none)
             => Maybe.Some(some());

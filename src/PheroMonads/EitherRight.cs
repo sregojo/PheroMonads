@@ -2,7 +2,7 @@
 
 namespace PheroMonads
 {
-    public sealed class EitherRight<Tl, Tr> : EitherOperand<Tr>, IEither<Tl, Tr>
+    sealed class EitherRight<Tl, Tr> : EitherOperand<Tr>, IEither<Tl, Tr>
     {
         public EitherRight(Tr value) : base(value) { }
 
@@ -43,16 +43,10 @@ namespace PheroMonads
             => Maybe.Some(right(this.value));
 
         public IMaybe<TU> Case<TU>(Func<TU> left, Action right)
-        {
-            right();
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(()=>right());
 
         public IMaybe<TU> Case<TU>(Func<TU> left, Action<Tr> right)
-        {
-            right(this.value);
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => right(this.value));
 
         public TU Case<TU>(Func<TU> left, Func<Tr, TU> right)
             => right(this.value);
@@ -64,16 +58,10 @@ namespace PheroMonads
             => Either.Create<TUl, TUr>(right(this.value));
 
         public IMaybe<TU> Case<TU>(Func<Tl, TU> left, Action right)
-        {
-            right();
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => right());
 
         public IMaybe<TU> Case<TU>(Func<Tl, TU> left, Action<Tr> right)
-        {
-            right(this.value);
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => right(this.value));
 
         public TU Case<TU>(Func<Tl, TU> left, Func<Tr, TU> right)
             => right(this.value);
@@ -85,16 +73,10 @@ namespace PheroMonads
             => Either.Create<TUl, TUr>(right(this.value));
 
         public IMaybe<TU> Case<TU>(Func<IMaybe<TU>> left, Action right)
-        {
-            right();
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => right());
 
         public IMaybe<TU> Case<TU>(Func<IMaybe<TU>> left, Action<Tr> right)
-        {
-            right(this.value);
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => right(this.value));
 
         public IMaybe<TU> Case<TU>(Func<IMaybe<TU>> left, Func<TU> right)
             => Maybe.Some(right());
@@ -106,16 +88,10 @@ namespace PheroMonads
             => Maybe.Some(right(this.value));
 
         public IMaybe<TU> Case<TU>(Func<Tl, IMaybe<TU>> left, Action right)
-        {
-            right();
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => right());
 
         public IMaybe<TU> Case<TU>(Func<Tl, IMaybe<TU>> left, Action<Tr> right)
-        {
-            right(this.value);
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => right(this.value));
 
         public IMaybe<TU> Case<TU>(Func<Tl, IMaybe<TU>> left, Func<TU> right)
             => Maybe.Some(right());
@@ -157,16 +133,10 @@ namespace PheroMonads
             => Maybe.None<Tr>();
 
         public IMaybe<Tl> Right(Action right)
-        {
-            right();
-            return Maybe.None<Tl>();
-        }
+            => Maybe.None<Tl>(() => right());
 
         public IMaybe<Tl> Right(Action<Tr> right)
-        {
-            right(this.value);
-            return Maybe.None<Tl>();
-        }
+            => Maybe.None<Tl>(() => right(this.value));
 
         public Tl Right(Func<Tl> right)
             => right();

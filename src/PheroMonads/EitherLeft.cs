@@ -2,7 +2,7 @@
 
 namespace PheroMonads
 {
-    public sealed class EitherLeft<Tl, Tr> : EitherOperand<Tl>, IEither<Tl, Tr>
+    sealed class EitherLeft<Tl, Tr> : EitherOperand<Tl>, IEither<Tl, Tr>
     {
         public EitherLeft(Tl value) : base(value) { }
 
@@ -13,28 +13,16 @@ namespace PheroMonads
             => left();
 
         public IMaybe<TU> Case<TU>(Action left, Func<TU> right)
-        {
-            left();
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(()=>left());
 
         public IMaybe<TU> Case<TU>(Action left, Func<IMaybe<TU>> right)
-        {
-            left();
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => left());
 
         public IMaybe<TU> Case<TU>(Action left, Func<Tr, TU> right)
-        {
-            left();
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => left());
 
         public IMaybe<TU> Case<TU>(Action left, Func<Tr, IMaybe<TU>> right)
-        {
-            left();
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => left());
 
         public void Case(Action<Tl> left, Action right)
             => left(this.value);
@@ -43,28 +31,16 @@ namespace PheroMonads
             => left(this.value);
 
         public IMaybe<TU> Case<TU>(Action<Tl> left, Func<TU> right)
-        {
-            left(this.value);
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => left(this.value));
 
         public IMaybe<TU> Case<TU>(Action<Tl> left, Func<IMaybe<TU>> right)
-        {
-            left(this.value);
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => left(this.value));
 
         public IMaybe<TU> Case<TU>(Action<Tl> left, Func<Tr, TU> right)
-        {
-            left(this.value);
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => left(this.value));
 
         public IMaybe<TU> Case<TU>(Action<Tl> left, Func<Tr, IMaybe<TU>> right)
-        {
-            left(this.value);
-            return Maybe.None<TU>();
-        }
+            => Maybe.None<TU>(() => left(this.value));
 
         public IMaybe<TU> Case<TU>(Func<Tl, TU> left, Action right)
             => Maybe.Some(left(this.value));
@@ -127,16 +103,10 @@ namespace PheroMonads
             => Maybe.Some(left());
 
         public IMaybe<Tr> Left(Action left)
-        {
-            left();
-            return Maybe.None<Tr>();
-        }
+            => Maybe.None<Tr>(() => left());
 
         public IMaybe<Tr> Left(Action<Tl> left)
-        {
-            left(this.value);
-            return Maybe.None<Tr>();
-        }
+            => Maybe.None<Tr>(() => left(this.value));
 
         public Tr Left(Func<Tr> left)
             => left();

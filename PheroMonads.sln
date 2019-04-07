@@ -3,7 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PheroMonads", "PheroMonads\PheroMonads.csproj", "{13D9F161-06D1-45F6-A09B-EA79CAA5178C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PheroMonads", "src\PheroMonads\PheroMonads.csproj", "{13D9F161-06D1-45F6-A09B-EA79CAA5178C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{30A8E142-270B-4485-A58E-D2465FD276DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{73C01B14-2B3F-4681-84A5-82FA9EC4FDF4}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "artwork", "artwork", "{875E31F5-F747-4A4A-9ACA-2D4D2BE94AE0}"
+	ProjectSection(SolutionItems) = preProject
+		artwork\logo.png = artwork\logo.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +32,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13D9F161-06D1-45F6-A09B-EA79CAA5178C} = {30A8E142-270B-4485-A58E-D2465FD276DC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {598D6379-1358-4970-AE59-E6B5B1E9E732}
